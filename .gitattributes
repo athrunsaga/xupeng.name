@@ -1,0 +1,5 @@
+# 默认的文本行尾规范化
+* text=auto
+
+# Windows Batch 脚本必须使用 CRLF 行尾
+*.bat text eol=crlf
