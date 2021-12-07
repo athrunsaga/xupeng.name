@@ -13,19 +13,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repo
         uses: actions/checkout@v2
         
-      - name: npm install, deploy
+      - name: Deploy Site Content
         run: |
+          mkdir ~/.ssh/
+          echo '${{ secrets.GH_KEY }}' > ~/.ssh/id_ed25519
+          chmod 400 ~/.ssh/id_ed25519
+
           npm install
           npm run deploy
+
+          rm ~/.ssh/id_ed25519
       
-      - name: Deploy to ECS
+      - name: Update Site Content
         uses: appleboy/ssh-action@v0.1.4
         with:
           host: xupeng.name
+          username: ${{ secrets.SITE_USERNAME }}
           key: ${{ secrets.SITE_KEY }}
           script: |
-            cd /var/www/xupeng.name
-            git --version
+            systemctl stop nginx
+            cd /var/www
+            rm -rf xupeng.name
+
+            git init xupeng.name
+            cd xupeng.name
+            git remote add origin git@github.com:athrunsaga/xupeng.name.git
+            git fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin pages
+            git checkout --force -B pages refs/remotes/origin/pages
+
+            systemctl start nginx

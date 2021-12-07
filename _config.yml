@@ -103,6 +103,8 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: git@github.com:athrunsaga/xupeng.name.git
+  repo: 'git@github.com:athrunsaga/xupeng.name.git'
   branch: pages
   message: 'update: 更新博文'
+  name: Arthur Xu
+  email: xupeng1983@188.com
