@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形" stroke="#222222" fill="#222222" x="0.5" y="0.5" width="199" height="199"></rect>
+        <text id="冰" font-family="SourceHanSansSC-Bold, Source Han Sans SC" font-size="120" font-weight="bold" fill="#CFCFCF">
+            <tspan x="40" y="152">冰</tspan>
+        </text>
+    </g>
+</svg>
