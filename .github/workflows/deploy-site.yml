@@ -1,0 +1,30 @@
+name: Deploy Site
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Deploy to branch
+        uses: anna-money/github-actions-npm@v2
+        with:
+          target: deploy
+      
+      - name: Deploy to ECS
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: xupeng.name
+          username: ''
+          password: ''
+          script: ''
