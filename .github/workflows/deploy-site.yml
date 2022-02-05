@@ -22,9 +22,8 @@ jobs:
           echo '${{ secrets.GH_KEY }}' > ~/.ssh/id_ed25519
           chmod 400 ~/.ssh/id_ed25519
 
-          node -v
           npm install
-          npm run deploy
+          npx hexo deploy
 
           rm ~/.ssh/id_ed25519
       
