@@ -23,6 +23,8 @@ jobs:
           chmod 400 ~/.ssh/id_ed25519
 
           npm install
+          npx hexo clean
+          npx hexo generate
           npx hexo deploy
 
           rm ~/.ssh/id_ed25519
